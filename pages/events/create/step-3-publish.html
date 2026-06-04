@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academia Rwanda - Create Event: Step 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<!-- material-symbols styles: main.css -->
+<link rel="stylesheet" href="../../../assets/css/main.css"/>
+</head>
+<body class="bg-background text-text-primary h-full flex flex-col font-sans">
+<!-- Transactional Top Header (Suppressed main nav since this is a flow) -->
+<header class="bg-primary shadow-md sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-lg max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4 text-on-primary">
+<span class="material-symbols-outlined text-accent-amber" data-weight="fill">school</span>
+<span class="font-display-lg text-display-lg tracking-tight">Academia Rwanda</span>
+</div>
+<div class="flex items-center gap-2 text-on-primary opacity-90 font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-accent-amber">check_circle</span>
+<span>Step 3 of 3: Settings &amp; Publish</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-container-padding-md py-section-sm md:py-section-md">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Settings Form (Bento Style Layout) -->
+<div class="lg:col-span-8 space-y-gutter">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-section-sm">Finalize Event Settings</h1>
+<!-- Visibility Settings -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm">
+<h2 class="font-headline-md text-headline-md text-primary mb-margin-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-light">visibility</span>
+                        Visibility Options
+                    </h2>
+<p class="font-body-base text-body-base text-text-secondary mb-margin-md">Determine when and how this event is presented in the academic hub.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<label class="relative flex cursor-pointer rounded-lg border border-border-sage bg-sage-elevated p-4 focus:outline-none hover:bg-sage-dim transition-colors">
+<input class="peer sr-only" name="visibility" type="radio" value="draft"/>
+<span aria-hidden="true" class="peer-checked:border-primary peer-checked:ring-2 peer-checked:ring-primary absolute inset-0 rounded-lg border-2 border-transparent"></span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary mb-1">Save as Draft</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Keep it hidden while you refine details.</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-border-sage bg-sage-elevated p-4 focus:outline-none hover:bg-sage-dim transition-colors">
+<input checked="" class="peer sr-only" name="visibility" type="radio" value="publish"/>
+<span aria-hidden="true" class="peer-checked:border-primary peer-checked:ring-2 peer-checked:ring-primary absolute inset-0 rounded-lg border-2 border-transparent"></span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary mb-1">Publish Immediately</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Make it visible to attendees right now.</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-border-sage bg-sage-elevated p-4 focus:outline-none hover:bg-sage-dim transition-colors">
+<input class="peer sr-only" name="visibility" type="radio" value="schedule"/>
+<span aria-hidden="true" class="peer-checked:border-primary peer-checked:ring-2 peer-checked:ring-primary absolute inset-0 rounded-lg border-2 border-transparent"></span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary mb-1">Schedule for Later</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Set a specific date and time to go live.</span>
+</div>
+</label>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Registration Options -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm h-full">
+<h2 class="font-headline-md text-headline-md text-primary mb-margin-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-light">how_to_reg</span>
+                            Registration
+                        </h2>
+<div class="space-y-4">
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-sage-elevated transition-colors cursor-pointer border border-transparent hover:border-border-sage">
+<div class="flex items-center h-5 mt-1">
+<input class="w-4 h-4 text-primary focus:ring-primary border-outline rounded-full" name="registration" type="radio"/>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary">Internal RSVP</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Use the Hub's built-in attendance tracking.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-sage-elevated transition-colors cursor-pointer border border-transparent hover:border-border-sage">
+<div class="flex items-center h-5 mt-1">
+<input checked="" class="w-4 h-4 text-primary focus:ring-primary border-outline rounded-full" name="registration" type="radio"/>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary">External Link</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Direct users to Eventbrite or an institutional portal.</span>
+</div>
+</label>
+<div class="mt-2 pl-10">
+<input class="w-full bg-sage-elevated border-none rounded-[10px] focus:ring-2 focus:ring-primary text-body-base font-body-base px-4 py-2 text-text-primary placeholder:text-outline-variant" placeholder="https://..." type="url"/>
+</div>
+</div>
+</section>
+<!-- Privacy Controls -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm h-full">
+<h2 class="font-headline-md text-headline-md text-primary mb-margin-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-light">lock</span>
+                            Privacy Controls
+                        </h2>
+<div class="space-y-4">
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-sage-elevated transition-colors cursor-pointer border border-transparent hover:border-border-sage">
+<div class="flex items-center h-5 mt-1">
+<input checked="" class="w-4 h-4 text-primary focus:ring-primary border-outline rounded-full" name="privacy" type="radio"/>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary">Public</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Visible to anyone browsing the Hub.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-sage-elevated transition-colors cursor-pointer border border-transparent hover:border-border-sage">
+<div class="flex items-center h-5 mt-1">
+<input class="w-4 h-4 text-primary focus:ring-primary border-outline rounded-full" name="privacy" type="radio"/>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary">Institutional Only</span>
+<span class="block font-body-sm text-body-sm text-text-secondary">Requires verified university login to view.</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Tagging System -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm">
+<h2 class="font-headline-md text-headline-md text-primary mb-margin-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-light">sell</span>
+                        Academic Tags
+                    </h2>
+<p class="font-body-base text-body-base text-text-secondary mb-margin-md">Add up to 5 tags to help researchers and students find your event.</p>
+<div class="flex flex-wrap gap-2 mb-4" id="tagList">
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-sage-dim text-forest-mid rounded-full font-body-sm text-body-sm">
+                            Data Science
+                            <button class="text-forest-mid hover:text-primary" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-sage-dim text-forest-mid rounded-full font-body-sm text-body-sm">
+                            Symposium
+                            <button class="text-forest-mid hover:text-primary" type="button"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</span>
+</div>
+<div class="relative w-full max-w-md">
+<input class="w-full bg-sage-elevated border-none rounded-[10px] focus:ring-2 focus:ring-primary text-body-base font-body-base px-4 py-3 pl-10 text-text-primary placeholder:text-outline-variant" id="tagInput" placeholder="Search or add tags..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline">search</span>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar Summary Card -->
+<div class="lg:col-span-4 sticky top-[100px]">
+<aside class="bg-surface-container-lowest border border-border-sage rounded-xl shadow-md overflow-hidden">
+<!-- Media Highlight -->
+<div class="h-48 w-full bg-sage-elevated relative bg-cover bg-center" data-alt="A modern, well-lit academic auditorium filled with attendees listening to a presentation. The scene reflects a professional, institutional setting with natural light filtering in, utilizing a crisp, corporate light-mode aesthetic with subtle sage and deep forest green tones in the surrounding environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbThiyDfgyffawCnWTJe_KhYnGsNJ9OgsPZmner66g14-9gBAo1ig2oCHPbM4aidrHGgyAfZzR0X5-tCgSe4saMMjvvJpEPHsabkWMN1gjpCxvpw8VSBNbGjraQZHHAOe9VuqCTRPuHSK6ttv1tg2jUaYl2JE0QoxywcqyAQHlZiXTm-1MpCgpEJ5Bp4arfgj06JphRaV6QLpK1_a6ZqnFCnsv3ohhQENP2rUgEx4hDW7Q8BtIw0s3kzNxGseSHTRFVzn9-0PLH2R4')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="bg-accent-amber text-primary px-2 py-1 rounded text-xs font-bold uppercase tracking-wider mb-2 inline-block">Draft Preview</span>
+</div>
+</div>
+<div class="p-card-padding">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Annual Data Science Symposium 2024</h3>
+<div class="space-y-3 mb-6">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-forest-light mt-0.5">calendar_month</span>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary">Oct 15 - Oct 17, 2024</p>
+<p class="font-body-sm text-body-sm text-text-secondary">09:00 AM - 05:00 PM CAT</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-forest-light mt-0.5">location_on</span>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary">Kigali Innovation City</p>
+<p class="font-body-sm text-body-sm text-text-secondary">Main Auditorium &amp; Virtual</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-forest-light mt-0.5">person</span>
+<div>
+<p class="font-body-sm text-body-sm text-text-secondary">Organized by</p>
+<p class="font-headline-sm text-headline-sm text-primary">Dr. Jean-Paul Byiringiro</p>
+</div>
+</div>
+</div>
+<div class="border-t border-border-sage pt-4">
+<p class="font-body-sm text-body-sm text-text-secondary italic">Ensure all details are correct before publishing. You can edit this information later from your Dashboard.</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer Actions (Transactional style) -->
+<footer class="bg-surface-bright border-t border-border-sage py-margin-md mt-auto">
+<div class="max-w-container-max mx-auto px-container-padding-md flex justify-between items-center">
+<a href="step-2-media.html" class="px-6 py-2 rounded-lg font-headline-sm text-headline-sm text-primary border border-forest-mid hover:bg-sage-elevated transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                Back
+            </a>
+<a href="../../dashboards/organizer.html" id="publish-btn"
+   class="px-8 py-3 rounded-lg font-headline-sm text-headline-sm bg-accent-amber text-[#3B2800] shadow-md hover:shadow-lg transition-all flex items-center gap-2 font-bold">
+                Publish Event
+                <span class="material-symbols-outlined">rocket_launch</span>
+</a>
+</div>
+</footer>
+<script src="../../../assets/js/main.js"></script>
+<script type="module" src="../../../assets/js/page-create-step3.js"></script>
+</body></html>

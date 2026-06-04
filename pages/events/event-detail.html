@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Health Equity Workshop - Academia Rwanda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<style>
+        body { background-color: #F5F7F2; } /* Manual override to match prompt's sage-white #F5F7F2 request if different from config */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+        }
+    </style>
+<link rel="stylesheet" href="../../assets/css/main.css"/>
+</head>
+<body class="bg-background text-text-primary antialiased font-body-base">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-body-base text-body-base w-full top-0 sticky shadow-lg shadow-[0_4px_20px_rgba(15,30,23,0.3)] z-50">
+<div class="flex justify-between items-center h-20 px-container-padding-lg max-w-container-max mx-auto">
+<a class="font-display-lg text-display-lg text-on-primary tracking-tight" href="../../index.html">Academia Rwanda</a>
+<div class="hidden md:flex gap-margin-md items-center h-full">
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="../../index.html">Discover</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Universities</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Categories</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Map</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="../../pages/dashboards/organizer.html">For Organizers</a>
+</div>
+<div class="flex items-center gap-margin-sm">
+<div id="nav-guest-actions" class="flex items-center gap-margin-sm">
+<a href="../../pages/auth/sign-in.html" class="bg-accent-amber text-[#3B2800] px-6 py-2.5 rounded font-headline-sm text-headline-sm hover:brightness-110 transition-all shadow-sm active:scale-95">Sign In</a>
+</div>
+<div id="nav-user-actions" class="hidden items-center gap-margin-sm">
+<a href="../../pages/events/create/step-1.html" class="hidden sm:inline-flex bg-accent-amber text-[#3B2800] px-4 py-2 rounded font-bold hover:brightness-110 transition-all items-center gap-1"><span class="material-symbols-outlined text-[18px]">add</span> Create</a>
+<a href="../../pages/dashboards/user.html" aria-label="Your dashboard" class="flex items-center justify-center w-10 h-10 rounded-full bg-accent-amber text-[#3B2800] font-bold" id="nav-user-avatar">?</a>
+<button data-signout aria-label="Sign out" class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors p-2"><span class="material-symbols-outlined">logout</span></button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Not-found banner (shown if slug missing/unpublished) -->
+<div id="ed-notfound" class="hidden max-w-container-max mx-auto px-container-padding-lg py-section-lg text-center">
+<span class="material-symbols-outlined text-[48px] text-text-secondary">event_busy</span>
+<h1 class="font-headline-lg text-headline-lg text-primary mt-4">Event not found</h1>
+<p class="text-text-secondary mt-2">This event may have been removed or is no longer published.</p>
+<a href="../../index.html" class="inline-block mt-6 bg-accent-amber text-[#3B2800] px-6 py-3 rounded font-bold">Back to Discover</a>
+</div>
+<!-- Hero Section -->
+<header id="ed-hero" class="w-full bg-primary-container text-on-primary py-section-lg relative overflow-hidden bg-cover bg-center">
+<div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+<div class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg relative z-10">
+<div id="ed-tags" class="flex flex-wrap gap-3 mb-6"></div>
+<h1 id="ed-title" class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl mb-4 max-w-4xl leading-tight">
+                Loading…
+            </h1>
+<p id="ed-meta" class="font-headline-md text-headline-md text-sage-dim opacity-90 max-w-2xl flex items-center gap-2"></p>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg py-section-md grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column (65%) -->
+<div class="lg:col-span-8 space-y-section-sm">
+<!-- Organizer Attribution -->
+<a id="ed-organizer-link" href="#" class="flex items-center gap-4 p-card-padding bg-surface-container-lowest border border-border-sage rounded-lg shadow-sm hover:border-forest-mid transition-colors">
+<div id="ed-organizer-avatar" class="w-12 h-12 rounded-full bg-surface-variant bg-cover bg-center flex items-center justify-center text-primary font-headline-md">
+                    ?
+                </div>
+<div>
+<h3 class="font-headline-sm text-headline-sm flex items-center gap-2">
+                        <span id="ed-organizer-name">Loading…</span>
+                        <span id="ed-organizer-verified" class="material-symbols-outlined text-accent-amber text-[20px] hidden" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p id="ed-organizer-sub" class="text-body-sm text-text-secondary">Host Institution</p>
+</div>
+</a>
+<!-- Description -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-lg p-card-padding md:p-container-padding-lg shadow-sm">
+<h2 class="font-headline-lg text-headline-lg mb-6 text-primary">About this Event</h2>
+<div id="ed-description" class="font-body-lg text-body-lg text-text-secondary space-y-4"></div>
+</section>
+<!-- Speakers (injected by JS when present) -->
+<section id="ed-speakers-section" class="bg-surface-container-lowest border border-border-sage rounded-lg p-card-padding md:p-container-padding-lg shadow-sm hidden">
+<h2 class="font-headline-lg text-headline-lg mb-6 text-primary">Speakers</h2>
+<div id="ed-speakers" class="grid grid-cols-1 sm:grid-cols-2 gap-gutter"></div>
+</section>
+<!-- Agenda (injected by JS when present) -->
+<section id="ed-agenda-section" class="bg-surface-container-lowest border border-border-sage rounded-lg p-card-padding md:p-container-padding-lg shadow-sm hidden">
+<h2 class="font-headline-lg text-headline-lg mb-6 text-primary">Agenda</h2>
+<div id="ed-agenda" class="space-y-4"></div>
+</section>
+<!-- Logistics Bento -->
+<section class="bento-grid">
+<!-- Date/Time Card -->
+<div class="bg-sage-elevated rounded-lg p-card-padding flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Schedule</h4>
+<p id="ed-schedule" class="font-body-base text-body-base text-text-secondary"></p>
+</div>
+</div>
+<!-- Eligibility Card -->
+<div class="bg-sage-elevated rounded-lg p-card-padding flex flex-col gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Eligibility</h4>
+<p id="ed-eligibility" class="font-body-base text-body-base text-text-secondary"></p>
+</div>
+</div>
+<!-- Location Card (Spans two columns if needed) -->
+<div class="bg-surface-container-lowest border border-border-sage rounded-lg overflow-hidden md:col-span-2 flex flex-col sm:flex-row">
+<div class="p-card-padding flex-1 flex flex-col justify-center">
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">location_on</span> Venue
+                        </h4>
+<p id="ed-venue" class="font-body-base text-body-base text-text-secondary"></p>
+</div>
+<div class="w-full sm:w-48 h-32 sm:h-auto bg-surface-variant relative">
+<!-- Placeholder for Map -->
+<img alt="Map showing Butaro" class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="A detailed, modern digital map interface highlighting the Butaro region in Rwanda. The map uses a clean, light-mode aesthetic with soft sage greens, pale amber routes, and deep forest green location markers. The topography is subtly indicated with minimalist contour lines, and the overall style is professional, high-end, and perfectly aligned with a premium academic application." data-location="Butaro, Rwanda" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1duxnjJ4MOYQSfTOveqyncqBoRCt4oNFH8kPtCzXxOX94DxC1uY0coV1SV6IiZ4U5PAUKAvaYPaT4UrX1dDSi5kFNFSq-vq0Pyzf_cmZWCimbEL4sTnLuFyLEVMyAhbGxaE60l3FGsnbClP1dQs34WhXvHsuLInCIiJJj1IrHxy0COggx0W6xuoJY-wsMd8DZIV6fzRwxZWk_ImOUUNRn2Yddgf87qsvj3FYvb5WT18gGBA1F3c7XGyUh0ijp_sK3Ab4X_G4TNMa"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (35%) Sidebar -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Registration Sticky Card -->
+<div class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-[0_8px_30px_rgba(15,30,23,0.08)] sticky top-28">
+<div class="mb-6">
+<h3 id="ed-price" class="font-display-lg text-display-lg text-primary mb-2">—</h3>
+<p id="ed-seats" class="font-body-sm text-body-sm text-text-secondary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-amber animate-pulse"></span>
+                        <span id="ed-seats-text">RSVP to attend</span>
+                    </p>
+</div>
+<button id="ed-rsvp-btn" class="w-full bg-accent-amber text-[#3B2800] py-4 rounded-lg font-headline-md text-headline-md hover:brightness-110 hover:shadow-lg transition-all duration-300 active:scale-[0.98] mb-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">how_to_reg</span>
+<span id="ed-rsvp-label">Register for Event</span>
+</button>
+<a id="ed-external-link" href="#" target="_blank" rel="noopener" class="hidden w-full border-2 border-forest-mid text-forest-mid py-3 rounded-lg font-headline-sm text-headline-sm hover:bg-sage-dim transition-all mb-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">open_in_new</span> Registration Link
+</a>
+<p id="ed-reg-note" class="text-center font-body-sm text-body-sm text-text-secondary mb-6"></p>
+<hr class="border-border-sage mb-6"/>
+<!-- Organizer Mini-card -->
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div id="ed-mini-avatar" class="w-10 h-10 rounded-full bg-primary-container bg-cover bg-center text-on-primary flex items-center justify-center font-headline-sm">?</div>
+<div>
+<p id="ed-mini-name" class="font-headline-sm text-headline-sm text-primary leading-tight">—</p>
+<p class="font-body-sm text-body-sm text-text-secondary">Host</p>
+</div>
+</div>
+<button id="ed-follow-btn" class="px-4 py-1.5 border-2 border-forest-mid text-forest-mid rounded-full font-headline-sm text-headline-sm hover:bg-forest-mid hover:text-on-primary transition-colors">
+                        Follow
+                    </button>
+</div>
+<!-- Share Tools -->
+<div class="flex justify-center gap-4">
+<button id="ed-share-btn" class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary hover:bg-sage-elevated transition-colors" title="Share">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button id="ed-save-btn" class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary hover:bg-sage-elevated transition-colors" title="Save">
+<span class="material-symbols-outlined">bookmark_border</span>
+</button>
+<button id="ed-calendar-btn" class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-primary hover:bg-sage-elevated transition-colors" title="Add to Calendar">
+<span class="material-symbols-outlined">calendar_add_on</span>
+</button>
+</div>
+<!-- Report link -->
+<div class="text-center mt-6">
+<button id="ed-flag-btn" class="text-body-sm text-text-secondary hover:text-error transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">flag</span> Report this event
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-forest-dark dark:bg-black text-surface-variant font-body-sm text-body-sm w-full mt-section-lg border-t border-forest-mid">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-container-padding-lg py-section-md max-w-container-max mx-auto">
+<div>
+<h2 class="font-display-md text-display-md text-on-primary mb-4">Academia Rwanda</h2>
+<p class="text-surface-variant/70 mb-4">© 2024 Academia Rwanda. Supporting Rwandan Academic Excellence.</p>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-primary mb-4">Platform</h3>
+<ul class="space-y-2">
+<li><a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Partner Universities</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-primary mb-4">Resources</h3>
+<ul class="space-y-2">
+<li><a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Event Guidelines</a></li>
+<li><a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-headline-sm text-on-primary mb-4">Support</h3>
+<ul class="space-y-2">
+<li><a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script src="../../assets/js/main.js"></script>
+<script type="module" src="../../assets/js/page-event-detail.js"></script>
+</body></html>

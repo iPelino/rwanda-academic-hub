@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Dashboard - Academia Rwanda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../assets/js/tailwind.config.js"></script>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<!-- material-symbols styles: main.css -->
+<link rel="stylesheet" href="../../assets/css/main.css"/>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-base flex text-body-base">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-forest-dark dark:bg-black h-screen w-64 fixed left-0 top-0 shadow-md hidden md:flex flex-col z-50">
+<div class="flex flex-col h-full p-4 gap-6">
+<!-- Brand -->
+<div class="px-4 py-6">
+<span class="font-display-lg text-display-lg text-on-primary">Academia Rwanda</span>
+</div>
+<!-- Profile Header -->
+<div class="px-4 pb-6 border-b border-forest-mid/30 flex items-center gap-4">
+<div id="ud-profile-avatar" class="w-12 h-12 rounded-full object-cover border-2 border-accent-amber bg-forest-mid bg-cover bg-center flex items-center justify-center text-on-primary font-headline-sm">?</div>
+<div>
+<h2 id="ud-profile-name" class="font-headline-sm text-headline-sm text-on-primary">…</h2>
+<p id="ud-profile-sub" class="font-body-sm text-body-sm text-on-primary/70"></p>
+</div>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-2 flex-grow">
+<!-- Assuming "My RSVPs" is the closest intent for a dashboard showing upcoming events -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg active:scale-95 transition-transform hover:bg-forest-mid transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-headline-sm text-headline-sm">My RSVPs</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary active:scale-95 transition-transform hover:bg-forest-mid transition-colors duration-200 rounded-lg" href="../events/event-detail.html">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-headline-sm text-headline-sm">My Saved Events</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary active:scale-95 transition-transform hover:bg-forest-mid transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-headline-sm text-headline-sm">Following</span>
+</a>
+</li>
+<li class="mt-auto">
+<button data-signout class="w-full flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary active:scale-95 transition-transform hover:bg-forest-mid transition-colors duration-200 rounded-lg mb-2">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-headline-sm text-headline-sm">Sign Out</span>
+</button>
+</li>
+</ul>
+<!-- CTA -->
+<a href="../events/create/step-1.html" class="w-full bg-accent-amber text-[#3B2800] font-headline-sm text-headline-sm py-3 rounded-lg badge-shadow hover:brightness-110 transition-all mt-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span> Host New Event
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 relative min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface dark:bg-surface-dim h-16 border-b border-border-sage sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 w-full h-full max-w-max-width mx-auto">
+<!-- Search -->
+<div class="flex items-center bg-sage-elevated rounded-lg px-4 py-2 w-full max-w-md focus-within:ring-2 focus-within:ring-forest-light transition-all border border-transparent focus-within:border-forest-dark">
+<span class="material-symbols-outlined text-text-secondary mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none w-full text-forest-dark placeholder-text-secondary/70 font-body-sm text-body-sm focus:ring-0 p-0" placeholder="Search events, organizers..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<button class="text-text-secondary hover:text-forest-mid transition-all relative group">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-accent-amber rounded-full"></span>
+</button>
+<button class="text-text-secondary hover:text-forest-mid transition-all hidden md:block">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-forest-dark">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto px-container-padding-sm md:px-container-padding-md lg:px-container-padding-lg py-section-sm max-w-max-width mx-auto w-full">
+<!-- Welcome Header -->
+<section class="mb-section-sm">
+<h1 id="ud-welcome" class="font-headline-lg text-headline-lg text-text-primary mb-2">Welcome back</h1>
+<p class="font-body-lg text-body-lg text-text-secondary">Here's what's happening in your academic network.</p>
+</section>
+<!-- Your Upcoming Events (List View) -->
+<section class="mb-section-md">
+<div class="flex justify-between items-end mb-margin-md">
+<h2 class="font-display-lg text-display-lg text-forest-dark">Your Upcoming Events</h2>
+<a class="font-headline-sm text-headline-sm text-forest-mid hover:text-forest-dark flex items-center gap-1 transition-colors" href="#">
+                        View Calendar <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div id="ud-rsvps" class="flex flex-col gap-margin-sm">
+<div class="text-text-secondary py-8">Loading…</div>
+</div>
+</section>
+<!-- Saved Events -->
+<section id="ud-saved-section" class="mb-section-md">
+<h2 class="font-display-lg text-display-lg text-forest-dark mb-margin-md">Your Saved Events</h2>
+<div id="ud-saved" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="text-text-secondary py-8">Loading…</div>
+</div>
+</section>
+<!-- Following -->
+<section id="ud-following-section" class="pb-section-md">
+<h2 class="font-display-lg text-display-lg text-forest-dark mb-margin-md">Organizers You Follow</h2>
+<div id="ud-following" class="flex overflow-x-auto gap-gutter pb-4 no-scrollbar -mx-container-padding-sm px-container-padding-sm md:mx-0 md:px-0">
+<div class="text-text-secondary py-8">Loading…</div>
+</div>
+</section>
+</div>
+</main>
+<script src="../../assets/js/main.js"></script>
+<script type="module" src="../../assets/js/page-user-dashboard.js"></script>
+</body></html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Event - Step 2: Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../../assets/js/tailwind.config.js"></script>
+<!-- Tailwind Configuration -->
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<style>
+        /* Custom Utilities to supplement config */
+        body {
+            background-color: theme('colors.surface-bright');
+            color: theme('colors.text-primary');
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: theme('spacing.gutter');
+        }
+        @media (min-width: 1024px) {
+            .bento-layout {
+                display: grid;
+                grid-template-columns: 7fr 5fr;
+                gap: theme('spacing.gutter');
+            }
+        }
+    </style><link rel="stylesheet" href="../../../assets/css/main.css"/></head>
+<body class="antialiased min-h-screen flex flex-col font-body-base text-body-base">
+<!-- Transactional Header -->
+<header class="bg-primary text-on-primary h-20 w-full flex items-center sticky top-0 z-50 shadow-md px-container-padding-md lg:px-container-padding-lg">
+<div class="max-w-container-max w-full mx-auto flex items-center justify-between">
+<div class="flex items-center gap-margin-sm">
+<button aria-label="Cancel and return" class="w-10 h-10 rounded-full hover:bg-forest-mid flex items-center justify-center transition-colors mr-2">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="h-6 w-px bg-forest-mid hidden sm:block"></div>
+<h1 class="font-headline-md text-headline-md sm:ml-2">Create New Event</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-forest-light"></span>
+<span class="w-2 h-2 rounded-full bg-accent-amber"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-high"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary-fixed">Step 2 of 3: Media</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-container-padding-md py-section-md lg:py-section-lg">
+<div class="mb-margin-lg">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Engage your audience</h2>
+<p class="font-body-lg text-body-lg text-text-secondary max-w-2xl">Upload high-quality imagery to represent your event across the Academic Hub. A compelling cover image increases registration rates by up to 40%.</p>
+</div>
+<div class="bento-layout">
+<!-- Left Column: Upload Zones -->
+<div class="space-y-margin-lg">
+<!-- Banner Upload -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[120px]">wallpaper</span>
+</div>
+<div class="flex justify-between items-start mb-margin-md relative z-10">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Cover Banner</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mt-1">This is the hero image displayed at the top of your event page.</p>
+</div>
+<span class="px-3 py-1 bg-sage-elevated text-text-secondary font-body-sm text-body-sm rounded-full border border-border-sage">Required</span>
+</div>
+<div class="aspect-video w-full bg-surface-container-low border-2 border-dashed border-outline-variant hover:border-forest-light rounded-lg flex flex-col items-center justify-center cursor-pointer transition-all hover:bg-sage-dim relative z-10" data-upload-zone="banner">
+<div class="upload-prompt w-16 h-16 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl text-forest-mid">cloud_upload</span>
+</div>
+<span class="upload-prompt font-headline-sm text-headline-sm text-primary mb-1">Click to upload cover image</span>
+<span class="upload-prompt font-body-sm text-body-sm text-outline">or drag and drop here</span>
+<div class="upload-prompt mt-margin-sm flex gap-2">
+<span class="text-[11px] text-outline px-2 py-1 bg-surface-container-lowest rounded border border-surface-variant">16:9 Ratio</span>
+<span class="text-[11px] text-outline px-2 py-1 bg-surface-container-lowest rounded border border-surface-variant">Min 1920x1080px</span>
+</div>
+</div>
+</section>
+<!-- Thumbnail Upload -->
+<section class="bg-surface-container-lowest border border-border-sage rounded-xl p-card-padding shadow-sm relative overflow-hidden">
+<div class="flex flex-col sm:flex-row gap-margin-md items-start sm:items-center relative z-10">
+<div class="w-32 h-32 shrink-0 bg-surface-container-low border-2 border-dashed border-outline-variant hover:border-forest-light rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors group" data-upload-zone="thumbnail">
+<span class="upload-prompt material-symbols-outlined text-secondary group-hover:text-forest-mid transition-colors mb-2">add_photo_alternate</span>
+<span class="upload-prompt font-body-sm text-body-sm text-outline text-[11px]">1:1 Ratio</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Square Thumbnail</h3>
+<p class="font-body-sm text-body-sm text-text-secondary mb-margin-sm max-w-sm">Used in discovery grids, search results, and mobile views. If left blank, we will center-crop your cover banner.</p>
+<button class="px-4 py-2 bg-sage-elevated hover:bg-sage-dim text-primary border border-border-sage rounded-lg font-headline-sm text-headline-sm transition-colors text-sm">
+                                Upload Thumbnail
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Live Preview -->
+<div class="relative">
+<div class="sticky top-[104px]"> <!-- 80px header + 24px gap -->
+<h3 class="font-headline-sm text-headline-sm text-primary mb-margin-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-forest-mid text-lg">visibility</span>
+                        Live Discovery Preview
+                    </h3>
+<!-- Glassmorphism Preview Container -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md border border-border-sage rounded-xl p-6 shadow-lg relative overflow-hidden">
+<!-- Decorative background blob -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary-fixed-dim/20 rounded-full blur-2xl"></div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-margin-md relative z-10">This is how your event will appear to users browsing the Hub.</p>
+<!-- Event Card Preview -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden border border-border-sage shadow-sm relative z-10 transition-transform hover:-translate-y-1 duration-300">
+<!-- Card Image Area (Placeholder) -->
+<div class="w-full aspect-[4/3] bg-surface-variant relative flex items-center justify-center group/img">
+<img alt="Preview placeholder" class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale mix-blend-multiply" data-alt="A modern, abstract representation of an academic conference hall. The scene is brightly lit with natural sunlight streaming through large glass windows, creating a bright, optimistic light-mode aesthetic. A subtle overlay of deep forest green and warm amber tones ties the image to a corporate, academic brand identity. The space feels expansive, professional, and inviting, utilizing a minimalist architectural style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdvk0PnLAACAfazk0IViQRo19zuM_PnZ7umK9j6Tp8zd9K0J3B9MZYNRhPvOFnkvnkE1ORaeyEUhVfB50vXNFavsvk7jeUSXPMsDflemkzEJ7oY0xi89MG1XmG2MWab-mIDKV_arkQQpO2Rh1b5UuQgjIheq-Htx-n6sVmpk1bYZnJMl-dCkvQuIjAlh0iS7OVfPTXIJ-vCLMgJYqmoq6_L4cAoY5QqUqlp7AYTRx5jVAu5XUS_MFGR0YSxdDId5PyTlQwmLSrqYKl"/>
+<!-- Placeholder overlay text -->
+<div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-2">image_not_supported</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-lowest/80 px-3 py-1 rounded backdrop-blur-sm">Awaiting Cover Banner</span>
+</div>
+<!-- Category Strip -->
+<div class="absolute top-0 left-0 w-full h-1.5 bg-accent-amber"></div>
+</div>
+<!-- Card Content -->
+<div class="p-card-padding">
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 bg-sage-dim text-text-secondary font-body-sm text-body-sm rounded-full border border-border-sage">Symposium</span>
+<!-- Verified Badge -->
+<div class="flex items-center gap-1 text-accent-amber bg-surface-container-lowest px-1.5 py-0.5 rounded-full border border-surface-variant shadow-sm" title="Verified Academic Event">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2">The Future of Sustainable Agriculture in East Africa</h4>
+<div class="flex items-center gap-2 text-text-secondary font-body-sm text-body-sm mt-4">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Oct 24, 2024 • 09:00 AM</span>
+</div>
+<div class="flex items-center gap-2 text-text-secondary font-body-sm text-body-sm mt-2">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span>Kigali Innovation City</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Action Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-border-sage mt-auto">
+<div class="max-w-container-max mx-auto px-container-padding-md py-margin-md flex flex-col sm:flex-row justify-between items-center gap-4">
+<a href="step-1.html" class="w-full sm:w-auto px-6 py-3 rounded-lg border-2 border-primary text-primary font-headline-sm text-headline-sm hover:bg-sage-elevated transition-colors bg-surface-container-lowest text-center">
+                Back to Details
+            </a>
+<a href="step-3-publish.html" class="w-full sm:w-auto px-8 py-3 rounded-lg bg-accent-amber text-primary font-headline-md text-headline-md shadow-md hover:shadow-lg hover:bg-[#F0AF30] transition-all transform hover:-translate-y-0.5 text-center">
+                Continue to Settings
+            </a>
+</div>
+</footer>
+<script src="../../../assets/js/main.js"></script>
+<script type="module" src="../../../assets/js/page-create-step2.js"></script>
+</body></html>

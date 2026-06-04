@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In - Academia Rwanda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<style>
+        .nav-shadow { box-shadow: 0 4px 20px rgba(15, 30, 23, 0.08); }
+        .card-shadow { box-shadow: 0 2px 8px rgba(15, 30, 23, 0.05); }
+        .hover-shadow:hover { box-shadow: 0 8px 24px rgba(15, 30, 23, 0.12); }
+        .badge-shadow { box-shadow: 0 2px 4px rgba(232, 160, 32, 0.2); }
+        
+        .bg-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        .bg-circles {
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255,255,255,0.02) 0%, transparent 50%);
+        }
+      </style>
+<link rel="stylesheet" href="../../assets/css/main.css"/>
+</head>
+<body class="bg-background text-text-primary min-h-screen flex antialiased">
+<main class="flex-1 flex w-full min-h-screen">
+<!-- Left Panel: Branding / Imagery -->
+<section class="hidden lg:flex lg:w-[45%] xl:w-1/2 bg-primary-container relative overflow-hidden flex-col justify-between p-12">
+<!-- Decorative Backgrounds -->
+<div class="absolute inset-0 bg-circles pointer-events-none"></div>
+<div class="absolute inset-0 bg-pattern pointer-events-none opacity-50"></div>
+<div class="relative z-10">
+<!-- Brand Logo (Simplified text for illustrative purposes, normally would match Nav) -->
+<a href="../../index.html" class="font-display-lg text-display-lg text-sage-elevated flex items-center gap-3 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-accent-amber" style="font-size: 40px; font-variation-settings: 'FILL' 1;">school</span>
+                    Academia Rwanda
+                </a>
+</div>
+<div class="relative z-10 my-auto">
+<h1 class="font-display-xl text-display-xl text-sage-elevated mb-6 max-w-lg leading-tight">
+                    Join the Academic Public Square
+                </h1>
+<p class="font-body-lg text-body-lg text-inverse-primary max-w-md">
+                    Connect with researchers, access institutional resources, and collaborate across Rwanda's premier academic network.
+                </p>
+</div>
+<!-- Optional: Trust indicators or small graphic -->
+<div class="relative z-10 flex gap-4 mt-auto">
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 flex items-center gap-3">
+<span class="material-symbols-outlined text-inverse-primary">article</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-sage-elevated">10k+</div>
+<div class="font-body-sm text-body-sm text-inverse-primary">Publications</div>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 flex items-center gap-3">
+<span class="material-symbols-outlined text-inverse-primary">group</span>
+<div>
+<div class="font-headline-sm text-headline-sm text-sage-elevated">50+</div>
+<div class="font-body-sm text-body-sm text-inverse-primary">Institutions</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Sign In Form -->
+<section class="w-full lg:w-[55%] xl:w-1/2 flex flex-col justify-center items-center p-6 sm:p-12 bg-surface-container-lowest">
+<!-- Mobile Brand Header (Visible only on small screens) -->
+<div class="lg:hidden w-full max-w-md mb-8 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 32px; font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-display-lg text-display-lg text-primary-container">Academia</span>
+</div>
+<div id="signin-form-container" class="w-full max-w-md">
+<div class="mb-10 text-center lg:text-left">
+<h2 class="font-display-xl-mobile text-display-xl-mobile md:font-display-xl md:text-display-xl text-primary-container mb-2">Welcome Back</h2>
+<p class="font-body-base text-body-base text-text-secondary">Please sign in to continue to your dashboard.</p>
+</div>
+<!-- Social Sign In -->
+<button data-google-signin class="w-full flex items-center justify-center gap-3 bg-surface border border-outline-variant rounded-lg py-3 px-4 hover:bg-surface-dim transition-colors mb-6 font-headline-sm text-headline-sm text-text-primary card-shadow">
+<!-- Google G Logo SVG -->
+<svg class="w-5 h-5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+<div class="relative flex items-center mb-6">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink-0 mx-4 font-body-sm text-body-sm text-secondary">or sign in with email</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Email Form -->
+<form id="sign-in-form" class="space-y-5" novalidate>
+<div>
+<label class="block font-headline-sm text-headline-sm text-text-primary mb-2" for="email">Email Address</label>
+<input class="w-full bg-sage-elevated border-none rounded-lg px-4 py-3 font-body-base text-body-base text-text-primary focus:ring-2 focus:ring-primary-container focus:outline-none transition-all" id="email" name="email" placeholder="you@institution.ac.rw" required="" type="email"/>
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-headline-sm text-headline-sm text-text-primary" for="password">Password</label>
+<a class="font-body-sm text-body-sm text-forest-mid hover:text-primary transition-colors hover:underline decoration-accent-amber" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<input class="w-full bg-sage-elevated border-none rounded-lg px-4 py-3 font-body-base text-body-base text-text-primary focus:ring-2 focus:ring-primary-container focus:outline-none transition-all pr-12" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-secondary hover:text-primary-container" type="button" data-toggle-password="password" aria-label="Toggle password visibility">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="flex items-center mt-2">
+<input class="h-4 w-4 text-primary-container focus:ring-primary-container border-outline rounded cursor-pointer bg-sage-elevated" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block font-body-sm text-body-sm text-text-secondary cursor-pointer" for="remember-me">
+                            Remember me for 30 days
+                        </label>
+</div>
+<button class="w-full bg-accent-amber hover:bg-opacity-90 text-btn-amber-text font-headline-md text-headline-md py-3 px-4 rounded-lg badge-shadow transition-all mt-8" type="submit">
+                        Sign In
+                    </button>
+</form>
+<div class="mt-8 text-center">
+<p class="font-body-sm text-body-sm text-secondary">
+                        Don't have an account? 
+                        <a class="font-headline-sm text-headline-sm text-primary-container hover:underline decoration-accent-amber transition-all ml-1" href="sign-up.html">Sign Up</a>
+</p>
+</div>
+</div>
+<!-- Minimal Footer Links for Auth Page -->
+<div class="mt-auto pt-12 flex gap-6 font-body-sm text-body-sm text-secondary">
+<a class="hover:text-primary-container hover:underline decoration-accent-amber" href="#">Privacy Policy</a>
+<a class="hover:text-primary-container hover:underline decoration-accent-amber" href="#">Terms of Service</a>
+</div>
+</section>
+</main>
+<script src="../../assets/js/main.js"></script>
+<script type="module" src="../../assets/js/auth.js"></script>
+</body></html>

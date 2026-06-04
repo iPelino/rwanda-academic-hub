@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academia Rwanda - Discover Academic Events</title>
+<meta name="description" content="Discover and attend premier academic events, conferences, and symposiums across Rwanda's top universities."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/js/tailwind.config.js"></script>
+<!-- Design tokens loaded from assets/js/tailwind.config.js -->
+<!-- no-scrollbar defined in main.css -->
+<link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+<body class="bg-[#F5F7F2] text-text-primary font-body-base antialiased selection:bg-accent-amber selection:text-tertiary">
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" role="dialog" aria-label="Navigation menu">
+  <button class="absolute top-5 right-6 text-on-primary p-2" data-close-menu aria-label="Close menu">
+    <span class="material-symbols-outlined text-2xl">close</span>
+  </button>
+  <nav class="flex flex-col gap-6 mt-4">
+    <a class="text-accent-amber font-bold text-xl" href="#" data-close-menu>Discover</a>
+    <a class="text-on-primary text-xl opacity-80" href="#" data-close-menu>Universities</a>
+    <a class="text-on-primary text-xl opacity-80" href="#" data-close-menu>Categories</a>
+    <a class="text-on-primary text-xl opacity-80" href="#" data-close-menu>Map</a>
+    <a class="text-on-primary text-xl opacity-80" href="pages/dashboards/organizer.html" data-close-menu>For Organizers</a>
+  </nav>
+  <a class="mt-auto block bg-accent-amber text-[#3B2800] px-6 py-3 rounded font-bold text-center" href="pages/auth/sign-in.html">Sign In</a>
+</div>
+<!-- TopNavBar -->
+<header class="bg-primary text-on-primary font-body-base text-body-base w-full top-0 sticky shadow-lg shadow-[0_4px_20px_rgba(15,30,23,0.3)] z-50">
+<div class="flex justify-between items-center h-20 px-container-padding-lg max-w-container-max mx-auto">
+<a href="index.html" class="font-display-lg text-display-lg text-on-primary tracking-tight hover:text-accent-amber transition-colors duration-200">Academia Rwanda</a>
+<nav class="hidden md:flex gap-margin-md items-center h-full">
+<a class="text-accent-amber border-b-2 border-accent-amber pb-1 font-bold h-full flex items-center" href="#">Discover</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Universities</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Categories</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="#">Map</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity hover:text-accent-amber transition-colors duration-200 h-full flex items-center" href="pages/dashboards/organizer.html">For Organizers</a>
+</nav>
+<div class="flex items-center gap-margin-sm">
+
+<!-- Guest actions (shown when logged out) -->
+<div id="nav-guest-actions" class="flex items-center gap-margin-sm">
+<a href="pages/auth/sign-in.html" class="bg-accent-amber text-[#3B2800] px-6 py-2.5 rounded-DEFAULT font-bold active:scale-95 transition-transform hover:brightness-110 shadow-sm">Sign In</a>
+</div>
+<!-- User actions (shown when logged in) -->
+<div id="nav-user-actions" class="hidden items-center gap-margin-sm">
+<a href="pages/events/create/step-1.html" class="hidden sm:inline-flex bg-accent-amber text-[#3B2800] px-4 py-2 rounded-DEFAULT font-bold hover:brightness-110 transition-all items-center gap-1"><span class="material-symbols-outlined text-[18px]">add</span> Create</a>
+<a href="pages/dashboards/user.html" aria-label="Your dashboard" class="flex items-center justify-center w-10 h-10 rounded-full bg-accent-amber text-[#3B2800] font-bold" id="nav-user-avatar">?</a>
+<button data-signout aria-label="Sign out" class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors p-2"><span class="material-symbols-outlined">logout</span></button>
+</div>
+<button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center text-on-primary p-2 rounded" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+  <span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Zone -->
+<section class="bg-primary w-full h-[320px] flex flex-col items-center justify-center relative overflow-hidden px-container-padding-md">
+<!-- Subtle background pattern/gradient -->
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-forest-light to-transparent"></div>
+<div class="relative z-10 w-full max-w-3xl text-center flex flex-col items-center gap-margin-md">
+<h1 class="font-display-xl text-display-xl text-on-primary mb-2">Discover Academic Excellence in Rwanda</h1>
+<!-- Main Search -->
+<div class="w-full bg-surface rounded-lg p-2 flex items-center shadow-lg border border-border-sage focus-within:border-forest-mid transition-colors duration-300">
+<span class="material-symbols-outlined text-forest-mid ml-3 mr-2" style="font-variation-settings: 'FILL' 0;">search</span>
+<input id="event-search" class="flex-1 bg-transparent border-none text-text-primary focus:ring-0 font-body-lg text-body-lg placeholder:text-outline w-full py-3" placeholder="What do you want to learn today?" type="text"/>
+<button class="bg-accent-amber text-[#3B2800] px-8 py-3 rounded-DEFAULT font-bold hover:brightness-110 transition-all flex items-center gap-2">
+                    Search
+                </button>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap justify-center gap-base mt-2">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container border border-forest-light/30 font-body-sm text-body-sm hover:bg-forest-light/20 transition-colors">Computer Science</button>
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container border border-forest-light/30 font-body-sm text-body-sm hover:bg-forest-light/20 transition-colors">Business Leadership</button>
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container border border-forest-light/30 font-body-sm text-body-sm hover:bg-forest-light/20 transition-colors">Medical Research</button>
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container border border-forest-light/30 font-body-sm text-body-sm hover:bg-forest-light/20 transition-colors">Agri-Tech</button>
+</div>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg py-section-lg flex flex-col gap-section-gap-lg">
+<!-- Featured Section -->
+<section>
+<div class="flex justify-between items-end mb-margin-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Happening in Kigali</h2>
+<p class="font-body-base text-body-base text-text-secondary mt-1">Premium academic events and symposiums this week.</p>
+</div>
+<a class="text-forest-mid font-headline-sm text-headline-sm hover:text-forest-dark transition-colors flex items-center gap-1 group" href="#">
+                    View all <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Featured events grid — populated live from Supabase by page-index.js -->
+<div id="featured-events-grid" class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="col-span-full text-center py-12 text-text-secondary">Loading featured events…</div>
+</div>
+</section>
+
+<!-- Discovery Feed Section -->
+<section>
+<div class="flex justify-between items-end mb-margin-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">Discover Events</h2>
+<p class="font-body-base text-body-base text-text-secondary mt-1">Upcoming academic events across Rwanda's institutions.</p>
+</div>
+</div>
+<!-- Category filter chips — populated live from Supabase -->
+<div id="category-filters" class="flex flex-wrap gap-base mb-margin-lg"></div>
+<!-- Event feed grid -->
+<div id="events-feed-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="col-span-full text-center py-12 text-text-secondary">Loading events…</div>
+</div>
+<!-- Load more -->
+<div class="flex justify-center mt-margin-lg">
+<button id="load-more-btn" class="hidden px-8 py-3 rounded-DEFAULT border border-forest-mid text-forest-mid font-bold hover:bg-sage-dim transition-colors">Load More</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-forest-dark dark:bg-black text-surface-variant font-body-sm text-body-sm w-full mt-section-lg border-t border-forest-mid">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-container-padding-lg py-section-md max-w-container-max mx-auto">
+<div class="flex flex-col gap-margin-sm">
+<div class="font-display-lg text-display-lg text-on-primary text-[24px]">Academia Rwanda</div>
+<p class="opacity-80 leading-relaxed max-w-xs">Connecting minds across Rwanda's premier academic institutions.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Platform</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">About Us</a>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Partner Universities</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Resources</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Event Guidelines</a>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Support</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+<div class="border-t border-forest-mid/30 py-6 px-container-padding-lg text-center opacity-70">
+            © 2024 Academia Rwanda. Supporting Rwandan Academic Excellence.
+        </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/page-index.js"></script>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attendee RSVP List - Academia Rwanda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<!-- material-symbols styles: main.css -->
+<link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+<body class="bg-background text-text-primary font-body-base antialiased flex">
+<!-- SideNavBar (from JSON component) -->
+<nav class="bg-surface-container-low dark:bg-forest-dark h-screen w-64 fixed left-0 top-0 border-r border-border-sage dark:border-forest-mid flex flex-col h-full p-margin-md space-y-4 z-50">
+<div class="mb-section-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed mb-1">Organizer Portal</h1>
+<p class="font-body-sm text-body-sm text-text-secondary">Management Suite</p>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200" href="organizer.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-headline-sm text-headline-sm">Overview</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200" href="../events/event-detail.html">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-headline-sm text-headline-sm">My Events</span>
+</a>
+<a class="flex items-center space-x-3 p-3 bg-sage-elevated dark:bg-primary-container text-primary dark:text-on-primary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-headline-sm text-headline-sm">Attendees</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="font-headline-sm text-headline-sm">Followers</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-headline-sm text-headline-sm">Resources</span>
+</a>
+</div>
+<button class="w-full bg-accent-amber text-[#3B2800] py-3 rounded-lg font-headline-sm text-headline-sm shadow-md hover:opacity-90 transition-opacity mb-4">
+            New Event
+        </button>
+<div class="mt-auto pt-4 border-t border-border-sage dark:border-forest-mid space-y-2">
+<a class="flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-headline-sm text-headline-sm">Support</span>
+</a>
+<button data-signout class="w-full flex items-center space-x-3 p-3 text-secondary dark:text-secondary-fixed-dim hover:bg-sage-dim dark:hover:bg-forest-mid rounded-lg transition-all hover:translate-x-1 duration-200">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-headline-sm text-headline-sm">Log Out</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 min-h-screen">
+<!-- Secondary Header -->
+<header class="bg-surface sticky top-0 z-40 border-b border-border-sage px-margin-lg py-margin-md flex justify-between items-end">
+<div>
+<p class="font-body-sm text-body-sm text-text-secondary uppercase tracking-wider mb-2">Event Management</p>
+<h2 id="ar-event-title" class="font-display-lg text-display-lg text-primary">Loading…</h2>
+</div>
+<div class="text-right">
+<p class="font-body-lg text-body-lg text-text-secondary mb-1">Total RSVPs</p>
+<p class="font-headline-md text-headline-md text-primary"><span id="ar-total" class="text-accent-amber">—</span><span id="ar-capacity"></span></p>
+</div>
+</header>
+<div class="p-margin-lg max-w-container-max mx-auto">
+<!-- Controls & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-section-sm">
+<div class="flex-1 w-full md:w-auto relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary">search</span>
+<input id="ar-search" class="w-full pl-10 pr-4 py-3 bg-sage-elevated border-none focus:ring-2 focus:ring-forest-mid rounded-lg font-body-base text-body-base placeholder:text-text-secondary/70" placeholder="Search attendees by name, university..." type="text"/>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<select class="bg-sage-elevated border-none focus:ring-2 focus:ring-forest-mid rounded-lg font-body-base text-body-base py-3 pl-4 pr-10 appearance-none" id="roleFilter">
+<option>All Roles</option>
+<option>Student</option>
+<option>Faculty</option>
+<option>Alumni</option>
+</select>
+<button id="ar-export" class="flex items-center gap-2 px-6 py-3 border border-forest-mid text-forest-mid rounded-lg font-headline-sm text-headline-sm hover:bg-sage-elevated transition-colors">
+<span class="material-symbols-outlined">download</span>
+                        Export CSV
+                    </button>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-white border border-border-sage rounded-lg shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-border-sage">
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary">Attendee</th>
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary">University</th>
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary">Role</th>
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary">RSVP Date</th>
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary">Status</th>
+<th class="py-4 px-6 font-headline-sm text-headline-sm text-text-primary text-right">Actions</th>
+</tr>
+</thead>
+<tbody id="ar-tbody" class="font-body-base text-body-base text-text-secondary">
+<tr><td colspan="6" class="py-8 px-6 text-center text-text-secondary">Loading attendees…</td></tr>
+</tbody>
+</table>
+<!-- Pagination / Footer -->
+<div class="bg-surface-container-low border-t border-border-sage py-4 px-6 flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-text-secondary">Showing 1 to 3 of 342 entries</span>
+<div class="flex gap-2">
+<button class="p-2 rounded hover:bg-sage-dim text-text-secondary transition-colors" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded hover:bg-sage-dim text-text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/page-attendee-rsvp.js"></script>
+</body></html>

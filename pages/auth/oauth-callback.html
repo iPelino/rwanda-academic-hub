@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signing you in… — Academia Rwanda</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../../assets/css/main.css"/>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gray-50">
+  <div class="text-center">
+    <div class="animate-spin w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+    <p class="text-gray-600 font-medium">Completing sign-in, please wait…</p>
+  </div>
+  <script type="module">
+    /**
+     * OAuth callback handler.
+     * Supabase detects the hash/code in the URL automatically via
+     * detectSessionInUrl:true in the client config.
+     * We just wait for the session and redirect.
+     */
+    import { supabase } from '../../assets/js/supabase-client.js';
+
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        // Ensure a user_profiles row exists for OAuth users
+        await supabase.from('user_profiles').upsert({
+          id:        session.user.id,
+          full_name: session.user.user_metadata?.full_name ?? '',
+          avatar_url: session.user.user_metadata?.avatar_url ?? null,
+          role:      'attendee',
+        }, { onConflict: 'id' });
+
+        window.location.href = '../../index.html';
+      }
+    });
+  </script>
+</body>
+</html>

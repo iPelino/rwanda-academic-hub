@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>University of Rwanda - Academic Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../assets/js/tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet"/>
+<!-- Design tokens: assets/js/tailwind.config.js -->
+<!-- shadows and hover-lift: main.css -->
+<link rel="stylesheet" href="../assets/css/main.css"/>
+</head>
+<body class="bg-background text-text-primary antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Shared Component -->
+<header class="bg-primary text-on-primary nav-shadow sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-lg max-w-container-max mx-auto h-20">
+<a href="../index.html" class="font-display-lg text-display-lg text-on-primary hover:text-accent-amber transition-colors duration-200">Academia Rwanda</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex gap-margin-md items-center h-full">
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center font-body-base text-body-base" href="../index.html">Discover</a>
+<a class="text-accent-amber border-b-2 border-accent-amber pb-1 h-full flex items-center font-body-base text-body-base" href="#">Universities</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center font-body-base text-body-base" href="#">Categories</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center font-body-base text-body-base" href="#">Map</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 hover:text-accent-amber transition-colors duration-200 h-full flex items-center font-body-base text-body-base" href="../dashboards/organizer.html">For Organizers</a>
+</nav>
+<div class="flex items-center gap-margin-sm">
+<a href="../auth/sign-in.html" class="hidden md:inline-flex items-center bg-accent-amber text-[#3B2800] px-6 py-2.5 rounded font-bold active:scale-95 transition-transform hover:brightness-110 shadow-sm">Sign In</a>
+<button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center text-on-primary p-2 rounded" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- University Header Profile -->
+<section class="relative bg-primary-container h-[200px] flex items-end pb-margin-lg">
+<div class="absolute inset-0 overflow-hidden opacity-20">
+<img alt="University Campus" class="w-full h-full object-cover" data-alt="A wide architectural shot of a modern university campus building surrounded by lush green trees. The scene is lit by warm, golden-hour sunlight creating soft shadows across the facade. The aesthetic is academic, serene, and structurally imposing, fitting a corporate modern design system with a nature-inspired palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYIeWGhRGCFI75t_duu1kLOD-FYmU7MLJeGDvw-5p5DLUNCoD0Sx4ihgA2HY8zYHoqbTXXX2DhVgH3yiaYdwg5QGDT-BpJD3Hofj8dIVzzTOM-5k6oicXxXGwgeP8lQiTKmGe06iYy8IktK9gKz4_IXSTkjcy1keFzRCndW4acQoxga-NtVb0ijRNSva2TyFGQePoWH02anZJOP_3wLhwGoS6-2G8CvaJQCRoQzJbxY60HCCbZ3Z9e3AIXyJAKdx0tiA7SOAw87sse"/>
+</div>
+<div class="max-w-container-max mx-auto w-full px-container-padding-md md:px-container-padding-lg relative z-10 flex justify-between items-end">
+<div class="flex items-end gap-margin-md">
+<!-- Floating Avatar -->
+<div id="up-logo" class="w-20 h-20 rounded-full border-4 border-surface bg-surface bg-cover bg-center flex items-center justify-center overflow-hidden translate-y-10 shadow-lg text-forest-dark font-headline-md"></div>
+<div class="mb-2">
+<div class="flex items-center gap-2 mb-1">
+<h1 id="up-name" class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-primary m-0">Loading…</h1>
+<span id="up-verified" class="material-symbols-outlined text-accent-amber hidden" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-3 text-on-primary-container font-body-sm text-body-sm">
+<span id="up-campus" class="bg-forest-dark px-2 py-0.5 rounded-full border border-surface-tint hidden"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">event</span> <span id="up-event-count">—</span> Events</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> <span id="up-followers">—</span> Followers</span>
+<span id="up-est" class="flex items-center gap-1 hidden"><span class="material-symbols-outlined text-sm">history</span> <span id="up-est-text"></span></span>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<button id="up-follow-btn" class="bg-accent-amber text-[#3B2800] px-6 py-2 rounded-lg font-headline-sm text-headline-sm hover:bg-yellow-400 transition-colors badge-shadow flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person_add</span> <span id="up-follow-label">Follow</span>
+                    </button>
+</div>
+</div>
+</section>
+<!-- Profile Navigation -->
+<div class="border-b border-border-sage bg-surface pt-12">
+<div class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg flex gap-margin-md">
+<button class="pb-3 border-b-2 border-forest-mid text-text-primary font-headline-sm text-headline-sm px-2" data-tab="upcoming">Upcoming Events</button>
+<button class="pb-3 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-body-base text-body-base px-2 transition-colors" data-tab="past">Past Events</button>
+<button class="pb-3 border-b-2 border-transparent text-text-secondary hover:text-text-primary font-body-base text-body-base px-2 transition-colors" data-tab="about">About</button>
+</div>
+</div>
+<!-- Content Canvas -->
+<div id="tab-panel-upcoming">
+<section class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg py-section-md">
+<div class="mb-section-sm flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-text-primary">Upcoming Events</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-border-sage text-text-secondary hover:bg-sage-dim transition-colors"><span class="material-symbols-outlined" data-icon="tune">tune</span></button>
+</div>
+</div>
+<!-- Upcoming events grid — populated live -->
+<div id="up-upcoming" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="col-span-full text-text-secondary py-8">Loading…</div>
+</div>
+</section>
+</div><!-- end tab-panel-upcoming -->
+
+<!-- Past Events Tab Panel -->
+<div id="tab-panel-past" hidden>
+<section class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg py-section-md">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-section-sm">Past Events</h2>
+<div id="up-past" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<p class="text-text-secondary font-body-base text-body-base col-span-full">Loading…</p>
+</div>
+</section>
+</div>
+
+<!-- About Tab Panel -->
+<div id="tab-panel-about" hidden>
+<section class="max-w-container-max mx-auto px-container-padding-md md:px-container-padding-lg py-section-md">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-section-sm">About This Institution</h2>
+<p id="up-about" class="text-text-secondary font-body-base text-body-base max-w-prose">University details, mission, and accreditation information will appear here once provided by the institution.</p>
+<a id="up-website" href="#" target="_blank" rel="noopener" class="hidden mt-4 text-forest-mid underline font-headline-sm">Visit official website ↗</a>
+</section>
+</div>
+</main>
+<!-- Footer Shared Component -->
+<footer class="bg-forest-dark text-on-primary font-body-sm text-body-sm w-full border-t border-forest-mid">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-container-padding-lg py-section-md max-w-container-max mx-auto">
+<div class="flex flex-col gap-margin-sm">
+<a href="../index.html" class="font-display-lg text-display-lg text-on-primary hover:text-accent-amber transition-colors duration-200 text-[24px]">Academia Rwanda</a>
+<p class="opacity-80 leading-relaxed max-w-xs">Connecting minds across Rwanda's premier academic institutions.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Platform</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="../index.html">Discover Events</a>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Partner Universities</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Resources</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Event Guidelines</a>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-on-primary font-bold mb-2">Support</h4>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Contact Support</a>
+<a class="text-surface-variant/70 hover:text-on-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="border-t border-forest-mid/30 py-6 px-container-padding-lg text-center opacity-70">
+© 2024 Academia Rwanda. Empowering Institutional Excellence.
+</div>
+</footer>
+<script src="../assets/js/main.js"></script>
+<script type="module" src="../assets/js/page-university-profile.js"></script>
+</body></html>
