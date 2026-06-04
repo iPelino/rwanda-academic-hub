@@ -1,0 +1,193 @@
+/* ============================================================
+   Academia Rwanda — Global Stylesheet
+   Companion to Tailwind CDN. Provides:
+     • Shared shadows / elevation utilities  (canonical — do NOT redefine in HTML)
+     • hover-lift animation for event cards  (canonical — use this class everywhere)
+     • Upload-zone drag-over state
+     • Mobile menu overlay + drawer open/close
+     • Tag-chip, badge helpers
+     • Scroll-fade-in animation
+     • Success/confirmed badge variant
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. SHADOW / ELEVATION UTILITIES
+   Canonical values from design.md. Never redefine these inline.
+   RGB basis: rgba(15, 30, 23, …) = #0F1E17 (text-primary dark)
+   ---------------------------------------------------------- */
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(15, 30, 23, 0.08),
+              0 1px 2px rgba(15, 30, 23, 0.06);
+}
+
+.nav-shadow {
+  box-shadow: 0 2px 8px rgba(15, 30, 23, 0.10);
+}
+
+.elevated-shadow {
+  box-shadow: 0 4px 12px rgba(15, 30, 23, 0.10),
+              0 2px 4px  rgba(15, 30, 23, 0.06);
+}
+
+.badge-shadow {
+  box-shadow: 0 2px 8px rgba(232, 160, 32, 0.25);
+}
+
+.modal-shadow {
+  box-shadow: 0 8px 32px rgba(15, 30, 23, 0.18);
+}
+
+/* ----------------------------------------------------------
+   2. HOVER-LIFT — canonical card interaction across all pages
+   Use class="hover-lift" on every event card / tile.
+   Do NOT override translateY in page-level <style> blocks.
+   ---------------------------------------------------------- */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15, 30, 23, 0.12),
+              0 2px 6px  rgba(15, 30, 23, 0.07);
+}
+
+/* ----------------------------------------------------------
+   3. NO-SCROLLBAR utility
+   ---------------------------------------------------------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ----------------------------------------------------------
+   4. UPLOAD ZONE — drag-over feedback
+   ---------------------------------------------------------- */
+[data-upload-zone] {
+  cursor: pointer;
+}
+[data-upload-zone].drag-over {
+  border-color: #2D6645 !important;      /* forest-mid */
+  background-color: #EEF2E8 !important;  /* sage-elevated */
+}
+
+/* ----------------------------------------------------------
+   5. MOBILE MENU OVERLAY (top-nav pages)
+   Toggle via: document.getElementById('mobile-menu').classList.toggle('is-open')
+   ---------------------------------------------------------- */
+#mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  flex-direction: column;
+  background-color: #1A3D2B; /* primary (corrected from #022717) */
+  padding: 80px 24px 32px;
+  overflow-y: auto;
+}
+#mobile-menu.is-open {
+  display: flex;
+}
+
+/* ----------------------------------------------------------
+   6. SIDEBAR DRAWER (dashboard pages — mobile)
+   Toggle via: document.getElementById('sidebar-drawer').classList.toggle('is-open')
+   ---------------------------------------------------------- */
+#sidebar-drawer {
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 16rem; /* w-64 */
+  z-index: 50;
+}
+#sidebar-drawer.is-open {
+  transform: translateX(0);
+}
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background-color: rgba(15, 30, 23, 0.4);
+}
+#sidebar-overlay.is-open {
+  display: block;
+}
+
+/* ----------------------------------------------------------
+   7. TAB PANEL transition
+   ---------------------------------------------------------- */
+[id^="tab-panel-"] {
+  animation: fadeInUp 0.25s ease forwards;
+}
+
+/* ----------------------------------------------------------
+   8. SCROLL FADE-IN
+   Usage: add class="fade-in-up" to any element to have it
+   animate once visible (triggered via JS IntersectionObserver)
+   ---------------------------------------------------------- */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ----------------------------------------------------------
+   9. BOOKMARK BUTTON — filled/unfilled toggle
+   ---------------------------------------------------------- */
+[data-bookmark].is-bookmarked .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1;
+  color: #E8A020; /* accent-amber */
+}
+
+/* ----------------------------------------------------------
+   10. FORM VALIDATION ERROR STATES
+   ---------------------------------------------------------- */
+.field-error {
+  border-color: #ba1a1a !important;
+  box-shadow: 0 0 0 2px rgba(186, 26, 26, 0.2);
+}
+.field-error-msg {
+  display: block;
+  color: #ba1a1a;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+/* ----------------------------------------------------------
+   11. STATUS BADGE VARIANTS
+   Semantic colour usage — do not use amber for "confirmed"
+   ---------------------------------------------------------- */
+.badge-confirmed {
+  background-color: #D4F0E0;  /* success-bg */
+  color: #2D7A4F;             /* success */
+}
+.badge-pending {
+  background-color: #e8e8e5;  /* surface-container-high */
+  color: #5c5f5c;             /* secondary */
+}
+.badge-draft {
+  background-color: #e2e3df;  /* surface-variant */
+  color: #414843;             /* on-surface-variant */
+}
+.badge-published {
+  background-color: #EEF2E8;  /* sage-elevated */
+  color: #1A3D2B;             /* primary */
+}
+
+/* ----------------------------------------------------------
+   12. MATERIAL SYMBOLS — shared variation settings
+   ---------------------------------------------------------- */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
